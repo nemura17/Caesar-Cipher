@@ -2,7 +2,7 @@
 
 namespace Caesar_Cipher
 {
-    class Program
+    public class Program
     {
         /*
             Caesar cipher is a an old way of transfering secret information back in medieval times.
@@ -18,7 +18,7 @@ namespace Caesar_Cipher
             Prove that your code works.
         */
 
-        static void Main(string[] args)
+        static void Main()
         {
             int sumOfTheAlphabet = 26;                          /* an integer of the sum of letters in the english alphabet (26) */
 
@@ -40,6 +40,8 @@ namespace Caesar_Cipher
             Console.WriteLine("This is a decrypted text (original): {0} ", decryptedText);
 
             Console.WriteLine("\n");
+
+
         }
 
         /// <summary>
@@ -56,7 +58,7 @@ namespace Caesar_Cipher
 
             foreach (char ch in textToEncrypt)
             {
-                encryptedText += cipher(ch, shift, sumOfTheAlphabet);   /* encrypts every character (letter) using the cipher method */
+                encryptedText += Cipher(ch, shift, sumOfTheAlphabet);   /* encrypts every character (letter) using the cipher method */
             }
 
             return encryptedText;                                       /* returns the encrypted text */
@@ -83,7 +85,7 @@ namespace Caesar_Cipher
         /// <param name = "sumOfTheAlphabet"> an integer of the sum of letters in the english alphabet (26) </param>
         /// <returns> this method returns a shifted character </returns>
 
-        public static char cipher(char character, int shift, int sumOfTheAlphabet)
+        public static char Cipher(char character, int shift, int sumOfTheAlphabet)
         {
             if (!char.IsLetter(character))
             {                                                                          /* checking if a character is a letter */
@@ -96,5 +98,7 @@ namespace Caesar_Cipher
                                                                                         * so adding a number to a character can shift the character down.
                                                                                         * We need to limit the index to be within the valid range by using the modulo operator. */
         }
+
+
     }
 }
